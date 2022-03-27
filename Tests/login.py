@@ -19,6 +19,7 @@ class LoginTest(unittest.TestCase):
         cls.driver.maximize_window()
 
     def test_01_invalid_username_message(self):
+        """Ввод неверного логина"""
         driver = self.driver
         driver.get('https://airsoftsports.ru/auth/auth/')
 
@@ -31,6 +32,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message, 'Логин или пароль введен неправильно')
 
     def test_02_invalid_password_message(self):
+        """Ввод неверного пароля"""
         driver = self.driver
 
         login = LoginPage(driver)
@@ -43,6 +45,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_2, 'Логин или пароль введен неправильно')
 
     def test_03_invalid_username_and_password_message(self):
+        """Ввод неверных логина и пароля"""
         driver = self.driver
 
         login = LoginPage(driver)
@@ -54,6 +57,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_3, 'Логин или пароль введен неправильно')
 
     def test_04_login_valid(self):
+        """Ввод верных логина и пароля"""
         driver = self.driver
 
         login = LoginPage(driver)
@@ -64,6 +68,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_4, 'Вы успешно авторизированы!')
 
     def test_05_click_my_tabs(self):
+        """Проверка кликабельности кнопки 'Мои закладки'"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -73,6 +78,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_5, 'Мои закладки')
 
     def test_06_click_my_orders(self):
+        """Проверка кликабельности кнопки 'Мои заказы'"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -82,6 +88,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_6, 'Мои заказы')
 
     def test_07_click_my_profile(self):
+        """Проверка кликабельности кнопки 'Мой профиль'"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -91,6 +98,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_7, 'Мой профиль')
 
     def test_08_contact_info_message(self):
+        """Наличие контактной информации в моем профиле"""
         driver = self.driver
 
         message_8 = driver.find_element(By.CSS_SELECTOR,
@@ -98,6 +106,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_8, 'Контактная информация')
 
     def test_09_delivery_info_message(self):
+        """Наличие информации о доставке в моем профиле"""
         driver = self.driver
 
         message_9 = driver.find_element(By.CSS_SELECTOR,
@@ -105,6 +114,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_9, 'Информация о доставке')
 
     def test_10_other_info_message(self):
+        """Наличие дополнительной информации в моем профиле"""
         driver = self.driver
 
         message_10 = driver.find_element(By.CSS_SELECTOR,
@@ -112,6 +122,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_10, 'Дополнительная информация')
 
     def test_11_click_change_password(self):
+        """Проверка кликабельности кнопки 'Сменить пароль'"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -121,24 +132,28 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_11, 'Сменить пароль')
 
     def test_12_new_password_value(self):
+        """Наличие поля 'Новый пароль' в графе сменить пароль"""
         driver = self.driver
 
         message_12 = driver.find_element(By.CSS_SELECTOR, '#register > tbody > tr:nth-child(1) > td:nth-child(1)').text
         self.assertEqual(message_12, 'Новый пароль:*')
 
     def test_13_confirmation_new_password_value(self):
+        """Наличие поля 'Подтверждение пароля' в графе сменить пароль"""
         driver = self.driver
 
         message_13 = driver.find_element(By.CSS_SELECTOR, '#register > tbody > tr:nth-child(2) > td:nth-child(1)').text
         self.assertEqual(message_13, 'Подтвержение пароля:*')
 
     def test_14_old_password_value(self):
+        """Наличие поля 'Старый пароль' в графе сменить пароль"""
         driver = self.driver
 
         message_14 = driver.find_element(By.CSS_SELECTOR, '#register > tbody > tr:nth-child(3) > td:nth-child(1)').text
         self.assertEqual(message_14, 'Старый пароль:*')
 
     def test_15_click_basket(self):
+        """Проверка кликабельности кнопки 'В корзине'"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -148,6 +163,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_15, 'В корзине')
 
     def test_16_click_catalog_products(self):
+        """Проверка выпадающего списка при нажатие на каталог товаров"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -161,6 +177,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(product, message_16)
 
     def test_17_click_airsoft_guns(self):
+        """Проверка кликабельности кнопки 'Страйкбольное оружие' в каталоге товаров"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -170,6 +187,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_17, 'Оружие для страйкбола')
 
     def test_18_lens_products_and_imgs(self):
+        """Сравнения количества товаров и картинок к ним (категория 'Страйкбольное оружие')"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -181,6 +199,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(len(products), len(imgs))
 
     def test_19_lens_product_and_name(self):
+        """Сравнения количества товаров и названия к ним (категория 'Страйкбольное оружие')"""
         driver = self.driver
 
         products = driver.find_elements(By.CLASS_NAME, 'product')
@@ -189,6 +208,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(len(products), len(names))
 
     def test_20_lens_product_and_brands(self):
+        """Сравнения количества товаров и наличие бренда к ним (категория 'Страйкбольное оружие')"""
         driver = self.driver
 
         products = driver.find_elements(By.CLASS_NAME, 'product')
@@ -197,6 +217,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(len(products), len(brands))
 
     def test_21_lens_product_and_prices(self):
+        """Сравнения количества товаров и цены к ним (категория 'Страйкбольное оружие')"""
         driver = self.driver
 
         products = driver.find_elements(By.CLASS_NAME, 'product')
@@ -205,6 +226,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(len(products), len(prices))
 
     def test_22_lens_product_and_button_pay(self):
+        """Сравнения количества товаров и кнопки 'Купить' к ним (категория 'Страйкбольное оружие')"""
         driver = self.driver
 
         products = driver.find_elements(By.CLASS_NAME, 'product')
@@ -213,6 +235,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(len(products), len(button_pay))
 
     def test_23_lens_product_and_button_detailed(self):
+        """Сравнения количества товаров и кнопки 'Подробнее' к ним (категория 'Страйкбольное оружие')"""
         driver = self.driver
 
         products = driver.find_elements(By.CLASS_NAME, 'product')
@@ -221,6 +244,8 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(len(products), len(button_detailed))
 
     def test_24_check_buys(self):
+        """Добавление товара в корзину (Страйкбольная винтовка (ARES) Amoeba STRIKER S1 Black AS01-BK).
+        Наличие кнопки 'Оформить заказ' в ней"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -232,6 +257,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_24, True)
 
     def test_25_more_buys(self):
+        """Наличие кнопки '+' для увеличения количества товара в корзине"""
         driver = self.driver
 
         message_25 = driver.find_element(By.XPATH,
@@ -239,6 +265,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_25, True)
 
     def test_26_delete_buys(self):
+        """Наличие кнопки 'х' для удаления товара из корзины"""
         driver = self.driver
 
         message_26 = driver.find_element(By.XPATH,
@@ -246,12 +273,14 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_26, True)
 
     def test_27_promo(self):
+        """Наличия поля для ввода промокода (корзина)"""
         driver = self.driver
 
         message_27 = driver.find_element(By.ID, 'coupon_code_text').is_displayed()
         self.assertEqual(message_27, True)
 
     def test_28_click_pyrotechnics(self):
+        """Проверка кликабельности кнопки 'Страйкбольная пиротехника' в каталоге товаров"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -262,6 +291,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_28, 'Страйкбольная пиротехника')
 
     def test_29_lens_products_and_imgs(self):
+        """Сравнения количества товаров и картинок к ним (категория 'Страйкбольная пиротехника')"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -273,6 +303,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(len(products), len(imgs))
 
     def test_30_lens_product_and_name(self):
+        """Сравнения количества товаров и названия к ним (категория 'Страйкбольная пиротехника')"""
         driver = self.driver
 
         products = driver.find_elements(By.CLASS_NAME, 'product')
@@ -281,6 +312,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(len(products), len(names))
 
     def test_31_lens_product_and_prices(self):
+        """Сравнения количества товаров и цен к ним (категория 'Страйкбольная пиротехника')"""
         driver = self.driver
 
         products = driver.find_elements(By.CLASS_NAME, 'product')
@@ -289,6 +321,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(len(products), len(prices))
 
     def test_32_lens_product_and_button_pay(self):
+        """Сравнения количества товаров и кнопки 'Купить' к ним (категория 'Страйкбольная пиротехника')"""
         driver = self.driver
 
         products = driver.find_elements(By.CLASS_NAME, 'product')
@@ -297,6 +330,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(len(products), len(button_pay))
 
     def test_33_lens_product_and_button_detailed(self):
+        """Сравнения количества товаров и кнопки 'Подробнее' к ним (категория 'Страйкбольная пиротехника')"""
         driver = self.driver
 
         products = driver.find_elements(By.CLASS_NAME, 'product')
@@ -305,6 +339,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(len(products), len(button_detailed))
 
     def test_34_click_new_products(self):
+        """Проверка кликабельности кнопки 'Новинки'"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -314,6 +349,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_34, 'Новинки')
 
     def test_35_click_sale(self):
+        """Проверка кликабельности кнопки 'Распродажа'"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -323,6 +359,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_35, 'Распродажа')
 
     def test_36_click_discounts_and_bonuses(self):
+        """Проверка кликабельности кнопки 'Скидки и бонусы'"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -332,6 +369,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_36, 'Скидки и бонусы')
 
     def test_37_click_payment_and_delivery(self):
+        """Проверка кликабельности кнопки 'Оплата и доставка'"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -341,6 +379,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_37, 'Оплата и доставка')
 
     def test_38_click_hurry_up(self):
+        """Проверка кликабельности кнопки 'Успей купить'"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -350,6 +389,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_38, 'Успей купить')
 
     def test_39_lens_products_count_and_timer(self):
+        """Наличие таймера на всех продуктах в категории 'Успей купить'"""
         driver = self.driver
 
         products = driver.find_elements(By.CLASS_NAME, 'product')
@@ -358,6 +398,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(len(products), len(button_detailed))
 
     def test_40_click_contacts(self):
+        """Проверка кликабельности кнопки 'Контакты'"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -367,6 +408,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_34, 'Контакты')
 
     def test_41_click_link_vk(self):
+        """Проверка корректности кнопки с ссылкой на группу в ВК"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -383,6 +425,7 @@ class LoginTest(unittest.TestCase):
         driver.switch_to.window(driver.window_handles[0])
 
     def test_42_click_link_facebook(self):
+        """Проверка корректности кнопки с ссылкой на группу в фейсбук"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -399,6 +442,7 @@ class LoginTest(unittest.TestCase):
         driver.switch_to.window(driver.window_handles[0])
 
     def test_43_click_link_twitter(self):
+        """Проверка корректности кнопки с ссылкой на группу в твиттер"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -415,6 +459,7 @@ class LoginTest(unittest.TestCase):
         driver.switch_to.window(driver.window_handles[0])
 
     def test_44_click_link_instagram(self):
+        """Проверка корректности кнопки с ссылкой на группу в инстаграм"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -431,6 +476,7 @@ class LoginTest(unittest.TestCase):
         driver.switch_to.window(driver.window_handles[0])
 
     def test_45_click_link_youtube(self):
+        """Проверка корректности кнопки с ссылкой на группу в ютуб"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -448,6 +494,7 @@ class LoginTest(unittest.TestCase):
         driver.close()
 
     def test_46_click_link_telegram_bot(self):
+        """Проверка корректности кнопки с ссылкой на бота в телеграм"""
         driver = self.driver
         driver.get('https://airsoftsports.ru')
 
@@ -465,6 +512,7 @@ class LoginTest(unittest.TestCase):
         driver.switch_to.window(driver.window_handles[0])
 
     def test_47_click_email_us(self):
+        """Появления формы для отправки отзыва после нажатия на кнопку 'НАПИСАТЬ НАМ' в подвале сайта"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -476,6 +524,7 @@ class LoginTest(unittest.TestCase):
         homepage.click_close_the_form()
 
     def test_48_lens_articles_and_news(self):
+        """Проверка, что каждая статья несет текстовую информацию"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -487,6 +536,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(len(articles), len(news))
 
     def test_49_presence_brands(self):
+        """Проверка, что на главной странице сайта представлены бренды, с которыми работает компания"""
         driver = self.driver
 
         homepage = HomePage(driver)
@@ -496,6 +546,7 @@ class LoginTest(unittest.TestCase):
         self.assertEqual(message_49, True)
 
     def test_50_presence_find(self):
+        """Проверка налия строки поиска на сайте"""
         driver = self.driver
 
         message_50 = driver.find_element(By.ID, 'find').is_displayed()
