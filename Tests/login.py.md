@@ -1,3 +1,4 @@
+```python
 # для фикстур
 # python -m pytest -v --html=.\Reports\report.html --driver Chrome --driver-path C:\Users\Татьяна\PycharmProjects\Projects_3\chromedriver.exe Tests\login.py
 from selenium import webdriver
@@ -561,3 +562,4 @@ class LoginTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+```
