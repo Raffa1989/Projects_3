@@ -37,8 +37,8 @@ class LoginTest(unittest.TestCase):
         driver = self.driver
 
         login = LoginPage(driver)
-        login.enter_username('con.t2012@yandex.ru')
-        login.enter_password('58890v18555')
+        login.enter_username('login')
+        login.enter_password('password')
         login.click_login()
         login.check_invalid_password_message()
         time.sleep(3)
