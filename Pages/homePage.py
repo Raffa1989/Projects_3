@@ -1,4 +1,3 @@
-```python
 # страница пользовательского профиля
 from selenium.webdriver.common.by import By
 from Locators.locators import Locators
@@ -157,4 +156,3 @@ class HomePage:
 
     def click_button_buy_vint1(self):
         self.driver.find_element(By.XPATH, self.button_buy_vint1_xpath).click()
-```        
