@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -731,3 +732,4 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <td class="extra" colspan="4">
             <div class="log"> ----------------------------Captured stdout teardown---------------------------- <br/>Test completed
 <br/></div></td></tr></tbody></table></body></html>
+```  
