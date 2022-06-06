@@ -1,3 +1,4 @@
+```xml
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
@@ -13,3 +14,4 @@
     </inspection_tool>
   </profile>
 </component>
+```
