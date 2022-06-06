@@ -1,4 +1,3 @@
-```python
 class Locators:
 
     # login page objects
@@ -46,4 +45,4 @@ class Locators:
     articles_xpath = '//*[@id="footer"]/div[1]/div[2]/ul/li[4]/a'
     top_logo_css_selector = '#logo > a'
     button_buy_vint1_xpath = '//*[@id="indicator_catalog"]/div[1]/div[1]/div/button[1]'
-    ```
+   
