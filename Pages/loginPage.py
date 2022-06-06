@@ -1,4 +1,3 @@
-```python
 # страница авторизации
 from selenium.webdriver.common.by import By
 from Locators.locators import Locators
@@ -44,4 +43,4 @@ class LoginPage:
         self.driver.find_element(By.NAME, self.password_textbox_name).clear()
         msg_4 = self.driver.find_element(By.CSS_SELECTOR, self.invalidUsernameAndPassword_css_selector).text
         return msg_4
-```    
+  
