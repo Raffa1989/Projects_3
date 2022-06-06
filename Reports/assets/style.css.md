@@ -1,3 +1,4 @@
+```css
 body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12px;
@@ -184,3 +185,4 @@ div.video video {
   /*finish triangle*/
   border-top: 8px solid #999;
 }
+```
